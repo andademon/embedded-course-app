@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   },
   video: {
     width: '100%',
-    height: 136,
+    height: 200,
   },
   controls: {
     flexDirection: 'row',
