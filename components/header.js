@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#33CF16',
   },
   title: {
-    textAlign: 'start',
+    // textAlign: 'start',
     color: '#fff',
     fontSize: 30,
   },
