@@ -1,31 +1,52 @@
-import React from 'react';
-import { StyleSheet, Text, View ,Button} from 'react-native';
-import Header from './components/header';
-import VideoPlayer from './components/videoplayer';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View ,Button, Alert} from 'react-native';
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-    <Header />
-      <View style = {styles.content}>
-        <VideoPlayer />
-      </View>
-      <View>
-        <Text>hi</Text>
-        <Button title="hello" onPress={() => {}} />
-      </View>
-    </View>
-  );
-}
+  const [text,setText] = useState("暂无数据");
+    const url = "http://nailv.mynatapp.cc";
+  
+    async function fun(){
+      // Alert.alert("title","Msg",[{text: "cancel",style: "cancel"},{text: "OK",style: "default"}]);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    // alignItems: 'strech',
-  },
-  content: {
-    padding: 20,
-    flex: 1
-  },
-});
+      try {
+        let response = await fetch(url + "/test",{
+          method: 'GET',
+        });
+        let data = await response.json().then((data) => {
+          console.log(data);
+          setText(data.Msg);
+        });
+        // console.log(response);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  
+    return (
+      <View style={styles.container}>
+        <Button title="hello" onPress={fun}/>
+        <View style={styles.seperateLine}></View>
+        <Text>{text}</Text>
+      </View>
+    );
+  }
+  
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      backgroundColor: '#fff',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    content: {
+      padding: 20,
+      flex: 1
+    },
+    seperateLine: {
+      backgroundColor: 'black',
+      width: 800,
+      height: 2,
+      marginTop: 20,
+      marginBottom: 20
+    },
+  });
