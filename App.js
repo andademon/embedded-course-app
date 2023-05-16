@@ -1,52 +1,75 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View ,Button, Alert} from 'react-native';
+import { StyleSheet, Text, View ,Button, Alert, TextInput} from 'react-native';
+import MyTextInput from './components/myTextInput';
 
-export default function App() {
-  const [text,setText] = useState("暂无数据");
-    const url = "http://nailv.mynatapp.cc";
-  
-    async function fun(){
-      // Alert.alert("title","Msg",[{text: "cancel",style: "cancel"},{text: "OK",style: "default"}]);
-
-      try {
-        let response = await fetch(url + "/test",{
-          method: 'GET',
-        });
-        let data = await response.json().then((data) => {
-          console.log(data);
-          setText(data.Msg);
-        });
-        // console.log(response);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  
+const Header = () => {
     return (
-      <View style={styles.container}>
-        <Button title="hello" onPress={fun}/>
-        <View style={styles.seperateLine}></View>
-        <Text>{text}</Text>
-      </View>
+        <View style = {{paddingTop: 30,paddingBottom:40}}><Text style = {{fontSize: 30,paddingStart: 15}}>Set up</Text></View>
     );
-  }
-  
-  const styles = StyleSheet.create({
+}
+
+export default function App(){
+    const [text1,setText1] = useState("");
+    const [text2,setText2] = useState("");
+    const [isFocused, setIsFocused] = useState(false);
+
+    return (
+        <View style = {styles.container}>
+            <Header />
+            <Text style = {{paddingStart: 20,fontSize:16}}>Video Streaming Address</Text>
+            <MyTextInput defaultValue = "" placeholder = "Video Streaming Address" />
+            {/* <TextInput 
+                style = {[styles.input, isFocused ? styles.focused : null]}
+                placeholder = "Video Streaming Address"
+                defaultValue = {text1}
+                onChangeText = {(newText) => {
+                    setText1(newText);
+                }}
+                onFocus = {() => {
+                    setIsFocused(true);
+                }}
+                onBlur = {() => {
+                    setIsFocused(false);
+                }}
+            /> */}
+            <Text style = {{paddingStart: 20,fontSize:16}}>Server Address</Text>
+            <MyTextInput defaultValue = "" placeholder = "Server Address" />
+            {/* <TextInput 
+                style = {[styles.input,isFocused ? styles.focused : null]}
+                placeholder = "Server Address"
+                defaultValue = {text2}
+                onChangeText = {(newText) => {
+                    setText2(newText);
+                }}
+                onFocus = {() => {
+                    setIsFocused(true);
+                }}
+                onBlur = {() => {
+                    setIsFocused(false);
+                }}
+            /> */}
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'center',
-      justifyContent: 'center',
+        flex: 1,
+        backgroundColor: '#fff',
     },
-    content: {
-      padding: 20,
-      flex: 1
+    input: {
+        height: 50,
+        margin: 20,
+        marginTop: 15,
+        marginBottom: 35,
+        padding:10,
+        fontSize: 20,
+        borderWidth: 1,
+        borderRadius: 10,
+        borderColor: 'black',
     },
-    seperateLine: {
-      backgroundColor: 'black',
-      width: 800,
-      height: 2,
-      marginTop: 20,
-      marginBottom: 20
+    focused: {
+        borderColor: 'green',
+        borderWidth: 2,
     },
-  });
+});
