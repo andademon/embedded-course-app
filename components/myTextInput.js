@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { TextInput, StyleSheet } from 'react-native';
+import { TextInput, StyleSheet, Alert } from 'react-native';
 
-const MyTextInput = ({defaultValue,placeholder}) => {
+const MyTextInput = ({defaultValue,placeholder,updateParent}) => {
   const [isFocused, setIsFocused] = useState(false);
-
+  const [inputValue, setInputValue] = useState(defaultValue);
+  
   return (
     <TextInput
       style={[
@@ -14,6 +15,8 @@ const MyTextInput = ({defaultValue,placeholder}) => {
       placeholder = {placeholder}
       onFocus={() => setIsFocused(true)}
       onBlur={() => setIsFocused(false)}
+      onChangeText={(inputValue) => {setInputValue(inputValue);updateParent(inputValue);}}
+      //setInputValue是异步函数，把inputValue作为参数传递给onChangText是为了及时更新
     />
   );
 };

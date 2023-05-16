@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Button } from 'react-native';
 import { Video } from 'expo-av';
 
-export default function VideoPlayer() {
+export default function VideoPlayer({VideoURI}) {
   const [playbackObject, setPlaybackObject] = useState(null);
-  const videoUri = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4';
+  const videoUri = VideoURI;
 
   async function loadVideo() {
     const playbackObject = await Video.createAsync({ uri: videoUri });

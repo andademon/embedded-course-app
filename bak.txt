@@ -1,0 +1,32 @@
+import React, { useState } from 'react';
+import { StyleSheet, Text, View ,Button, Alert, TextInput} from 'react-native';
+import MyTextInput from './components/myTextInput';
+
+const Header = () => {
+    return (
+        <View style = {{paddingTop: 30,paddingBottom:40}}><Text style = {{fontSize: 30,paddingStart: 15}}>Set up</Text></View>
+    );
+}
+
+export default function App(){
+    const [text1,setText1] = useState("");
+    const [text2,setText2] = useState("");
+    const [isFocused, setIsFocused] = useState(false);
+
+    return (
+        <View style = {styles.container}>
+            <Header />
+            <Text style = {{paddingStart: 20,fontSize:16}}>Video Streaming Address</Text>
+            <MyTextInput defaultValue = "" placeholder = "Video Streaming Address" />
+            <Text style = {{paddingStart: 20,fontSize:16}}>Server Address</Text>
+            <MyTextInput defaultValue = "" placeholder = "Server Address" />
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+    },
+});
