@@ -5,9 +5,6 @@ import { Video, ResizeMode } from 'expo-av';
 export default function MyVideo({videoURI}){
     const video = useRef(null);
     const [status, setStatus] = useState({});
-    const handleVideoLoad = () => {
-        video.current.playAsync();
-    };
 
     return (
         <View style = {{height:300}}>
@@ -21,7 +18,6 @@ export default function MyVideo({videoURI}){
                 resizeMode={ResizeMode.CONTAIN}
                 isLooping
                 onPlaybackStatusUpdate={status => setStatus(() => status)}
-                onLoad={handleVideoLoad}
             />
             <View style = {{justifyContent: 'center',alignItems:'center',height:60}}>
                 <View style = {{width: 200}}>
