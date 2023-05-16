@@ -5,22 +5,13 @@ import { Video, ResizeMode } from 'expo-av';
 export default function MyVideo({videoURI}){
     const video = useRef(null);
     const [status, setStatus] = useState({});
-    // const [isLoading,setIsLoading] = useState(true)
-
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setIsLoading(false);
-    //     }, 1000);
-    // },[]);
-
     const handleVideoLoad = () => {
         video.current.playAsync();
     };
 
     return (
         <View style = {{height:300}}>
-            {/* {isLoading ?(<Text>Loading...</Text>) : ( */}
-                <Video
+            <Video
                 ref={video}
                 style={{flex:1}}
                 source={{
@@ -32,15 +23,15 @@ export default function MyVideo({videoURI}){
                 onPlaybackStatusUpdate={status => setStatus(() => status)}
                 onLoad={handleVideoLoad}
             />
-            {/* ) */}
-            {/* } */}
-            <View style={styles.buttons}>
-                <Button
-                title={status.isPlaying ? 'Pause' : 'Play'}
-                onPress={() =>
-                    status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
-                }
-                />
+            <View style = {{justifyContent: 'center',alignItems:'center',height:60}}>
+                <View style = {{width: 200}}>
+                    <Button
+                        title={status.isPlaying ? 'Pause' : 'Play'}
+                        onPress={() =>
+                            status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
+                        }
+                    />
+                </View>
             </View>
         </View>
     );
