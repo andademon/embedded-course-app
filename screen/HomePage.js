@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import { StyleSheet, View, Button, Text } from 'react-native';
+import { StyleSheet, View, Button, Text, Alert } from 'react-native';
 import MyVideo from '../components/MyVideo';
 import Weather from '../components/weather';
 
@@ -12,6 +12,8 @@ export default function HomePage({route,navigation}) {
     const {VideoURI,ServerURL} = route.params;
     const [isLoading,setIsLoading] = useState(true)
 
+
+    //延迟一秒加载
     useEffect(() => {
         setTimeout(() => {
             setIsLoading(false);
@@ -26,6 +28,32 @@ export default function HomePage({route,navigation}) {
     //     console.log(uri1 === uri2);
     // }
 
+    async function turnLeft(){
+        try {
+            let response = await fetch(ServerURL + "/left",{
+                method:"POST",
+            });
+            let data = await response.json().then((data) => {
+                console.log(data);
+            });
+        } catch (error) {
+            Alert.alert("ERROR",error,[{text:"OK",style: "default"}]);
+        }
+    }
+
+    async function turnRight(){
+        try {
+            let response = await fetch(ServerURL + "/right",{
+                method:"POST",
+            });
+            let data = await response.json().then((data) => {
+                console.log(data);
+            });
+        } catch (error) {
+            Alert.alert("ERROR",error,[{text:"OK",style: "default"}]);
+        }
+    }
+
     return (
         <View style = {styles.container}>
             <Text style = {{marginStart:10,fontSize:16}}>VideoURI: {VideoURI}</Text>
@@ -38,8 +66,8 @@ export default function HomePage({route,navigation}) {
             </View>
             {/* <Separator /> */}
             <View style = {{height:60,flexDirection: 'row',marginTop:10,marginBottom:10,alignItems:'center',justifyContent:'center'}}>
-                <View style = {{flex:1,marginStart:20,marginEnd:15}}><Button title='left'></Button></View>
-                <View style = {{flex:1,marginStart:15,marginEnd:20}}><Button title='right'></Button></View>
+                <View style = {{flex:1,marginStart:20,marginEnd:15}}><Button title='left' onPress={turnLeft}></Button></View>
+                <View style = {{flex:1,marginStart:15,marginEnd:20}}><Button title='right' onPress={turnRight}></Button></View>
             </View>
             <Separator />
             <Weather />

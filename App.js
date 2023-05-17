@@ -9,6 +9,7 @@ const Stack = createNativeStackNavigator();
 
 export default function App(){
     return (
+        //导航堆栈
         <NavigationContainer>
             <Stack.Navigator initialRouteName="SetUp">
                 <Stack.Screen name = "SetUp" component = {SetUp} />
