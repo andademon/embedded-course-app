@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from 'react';
-import { StyleSheet, View, Button, Text } from 'react-native';
+import { StyleSheet, View, Button, Text, Alert } from 'react-native';
 
 export default function Weather(){
     const [weatherData,setWeatherData] = useState("no data available");
@@ -13,7 +13,7 @@ export default function Weather(){
                 setWeatherData(JSON.stringify(data));
             });
         } catch (error) {
-            Alert.alert("ERROR",error,[{text:"OK",style: "default"}]);
+            Alert.alert("ERROR",error.toString(),[{text:"OK",style: "default"}]);
         }
     }
 

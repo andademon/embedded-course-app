@@ -37,7 +37,7 @@ export default function HomePage({route,navigation}) {
                 console.log(data);
             });
         } catch (error) {
-            Alert.alert("ERROR",error,[{text:"OK",style: "default"}]);
+            Alert.alert("ERROR",error.toString(),[{text:"OK",style: "default"}]);
         }
     }
 
@@ -50,7 +50,7 @@ export default function HomePage({route,navigation}) {
                 console.log(data);
             });
         } catch (error) {
-            Alert.alert("ERROR",error,[{text:"OK",style: "default"}]);
+            Alert.alert("ERROR",error.toString(),[{text:"OK",style: "default"}]);
         }
     }
 
