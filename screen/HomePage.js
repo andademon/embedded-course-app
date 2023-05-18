@@ -9,7 +9,7 @@ const Separator = () => {
 }
 
 export default function HomePage({route,navigation}) {
-    const {VideoURI,ServerURL} = route.params;
+    const {videoURI,serverURL} = route.params;
     const [isLoading,setIsLoading] = useState(true)
 
 
@@ -22,7 +22,7 @@ export default function HomePage({route,navigation}) {
 
     // function fun(){
     //     let uri1 = "https://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4";
-    //     let uri2 = VideoURI;
+    //     let uri2 = videoURI;
     //     console.log(uri1);
     //     console.log(uri2);
     //     console.log(uri1 === uri2);
@@ -30,7 +30,7 @@ export default function HomePage({route,navigation}) {
 
     async function turnLeft(){
         try {
-            let response = await fetch(ServerURL + "/left",{
+            let response = await fetch(serverURL + "/left",{
                 method:"POST",
             });
             let data = await response.json().then((data) => {
@@ -43,7 +43,7 @@ export default function HomePage({route,navigation}) {
 
     async function turnRight(){
         try {
-            let response = await fetch(ServerURL + "/right",{
+            let response = await fetch(serverURL + "/right",{
                 method:"POST",
             });
             let data = await response.json().then((data) => {
@@ -56,12 +56,12 @@ export default function HomePage({route,navigation}) {
 
     return (
         <View style = {styles.container}>
-            <Text style = {{marginStart:10,fontSize:16}}>VideoURI: {VideoURI}</Text>
-            <Text style = {{marginStart:10,fontSize:16}}>ServerURL: {ServerURL}</Text>
+            <Text style = {{marginStart:10,fontSize:16}}>VideoURI: {videoURI}</Text>
+            <Text style = {{marginStart:10,fontSize:16}}>ServerURL: {serverURL}</Text>
             <Separator />
             <View style = {{height:300,marginTop:20}}>
             {isLoading?(<Text>Loading</Text>):
-                <MyVideo videoURI = {VideoURI} />
+                <MyVideo videoURI = {videoURI} />
             }
             </View>
             {/* <Separator /> */}
@@ -70,7 +70,7 @@ export default function HomePage({route,navigation}) {
                 <View style = {{flex:1,marginStart:15,marginEnd:20}}><Button title='right' onPress={turnRight}></Button></View>
             </View>
             <Separator />
-            <Weather />
+            <Weather serverURL={serverURL} />
         </View>
     );
 }

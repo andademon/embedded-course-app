@@ -26,7 +26,7 @@ export default function SetUp({navigation}){
                 <TouchableOpacity
                     onPress={() => {
                             Keyboard.dismiss();
-                            navigation.navigate('HomePage',{VideoURI:videoURI,ServerURL:serverURL})//前面VideoURI是属性名，后面videoURI是参数(从useState里取)
+                            navigation.navigate('HomePage',{videoURI:videoURI,serverURL:serverURL})//前面videoURI是属性名，后面videoURI是参数(从useState里取)
                         }
                     }
                     

@@ -1,12 +1,12 @@
 import React, { useState,useEffect } from 'react';
 import { StyleSheet, View, Button, Text, Alert } from 'react-native';
 
-export default function Weather(){
+export default function Weather({serverURL}){
     const [weatherData,setWeatherData] = useState("no data available");
 
     async function getWeather(){
         try {
-            let response = await fetch(ServerURL + "/weather",{
+            let response = await fetch(serverURL + "/weather",{
                 method:"GET",
             });
             let data = await response.json().then((data) => {
