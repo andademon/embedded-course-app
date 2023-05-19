@@ -4,7 +4,7 @@ import { AntDesign } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
-import { FontAwesome } from '@expo/vector-icons';
+import { Foundation } from '@expo/vector-icons';
 
 
 export default function NewHomePage(){
@@ -67,7 +67,7 @@ export default function NewHomePage(){
             <View style = {styles.otherTouchableArea}>
                 <TouchableHighlight style = {{flex:1}} onPress={() => {}} activeOpacity={0.6} underlayColor="#DDDDDD" >
                     <View style = {{flex:1,flexDirection:'row',justifyContent:'center'}}>
-                        <View style = {{flex:1,justifyContent:'center',alignItems:'center'}}><FontAwesome name="exclamation-circle" size={32} color="black" /></View>
+                        <View style = {{flex:1,justifyContent:'center',alignItems:'center'}}><Foundation name="info" size={32} color="black" /></View>
                         <View style = {{flex:4,justifyContent:'center'}}><Text style = {styles.mainText}>About</Text></View>
                     </View>
                 </TouchableHighlight>
