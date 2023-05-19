@@ -20,7 +20,7 @@ export default function MyVideo({videoURI}){
                 onPlaybackStatusUpdate={status => setStatus(() => status)}
             />
             <View style = {{justifyContent: 'center',alignItems:'center',height:60}}>
-                <View style = {{width: 200}}>
+                <View style = {{width: 370}}>
                     <Button
                         title={status.isPlaying ? 'Pause' : 'Play'}
                         onPress={() =>
