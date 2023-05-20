@@ -66,8 +66,8 @@ export default function Profiles(){
                 <TouchableOpacity
                     onPress={async () => {
                             // navigation.navigate('HomePage',{videoURI:videoURI,serverURL:serverURL})//前面videoURI是属性名，后面videoURI是参数(从useState里取)
-                            storeData("VideoURL",VideoURL.toString());
-                            storeData("ServerURL",ServerURL.toString());
+                            storeData("VideoURL",VideoURL);
+                            storeData("ServerURL",ServerURL);
                             Alert.alert("Saved")
                         }
                     }
