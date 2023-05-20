@@ -7,13 +7,13 @@ import { FontAwesome5 } from '@expo/vector-icons';
 import { Foundation } from '@expo/vector-icons';
 
 
-export default function NewHomePage(){
+export default function NewHomePage({navigation}){
     return (
         <View style = {styles.container}>
             <View style = {{height:50,marginTop:30}}></View>
             {/*分割界线*/}
             <View style = {styles.mainTouchableArea}>
-                <TouchableHighlight style = {{flex:1}} onPress={() => {}} activeOpacity={0.6} underlayColor="#DDDDDD">
+                <TouchableHighlight style = {{flex:1}} onPress={() => {navigation.navigate("Profiles")}} activeOpacity={0.6} underlayColor="#DDDDDD">
                     <View style = {{flex:1,flexDirection:'row',justifyContent:'center'}}>
                         <View style = {{flex:1,justifyContent:'center',alignItems:'center'}}><AntDesign name="profile" size={32} color="black" /></View>
                         <View style = {{flex:4,justifyContent:'center'}}><Text style = {styles.mainText}>Profiles</Text></View>
@@ -22,7 +22,7 @@ export default function NewHomePage(){
             </View>
 
             <View style = {styles.mainTouchableArea}>
-                <TouchableHighlight style = {{flex:1}} onPress={() => {}} activeOpacity={0.6} underlayColor="#DDDDDD">
+                <TouchableHighlight style = {{flex:1}} onPress={() => {navigation.navigate("Live")}} activeOpacity={0.6} underlayColor="#DDDDDD">
                     <View style = {{flex:1,flexDirection:'row',justifyContent:'center'}}>
                         <View style = {{flex:1,justifyContent:'center',alignItems:'center'}}><MaterialIcons name="live-tv" size={32} color="black" /></View>
                         <View style = {{flex:4,justifyContent:'center'}}><Text style = {styles.mainText}>Live</Text></View>
@@ -31,7 +31,7 @@ export default function NewHomePage(){
             </View>
 
             <View style = {styles.mainTouchableArea}>
-                <TouchableHighlight style = {{flex:1}} onPress={() => {}} activeOpacity={0.6} underlayColor="#DDDDDD">
+                <TouchableHighlight style = {{flex:1}} onPress={() => {navigation.navigate("Weather")}} activeOpacity={0.6} underlayColor="#DDDDDD">
                     <View style = {{flex:1,flexDirection:'row',justifyContent:'center'}}>
                         <View style = {{flex:1,justifyContent:'center',alignItems:'center'}}><MaterialCommunityIcons name="weather-partly-cloudy" size={32} color="black" /></View>
                         <View style = {{flex:4,justifyContent:'center'}}><Text style = {styles.mainText}>Weather</Text></View>
