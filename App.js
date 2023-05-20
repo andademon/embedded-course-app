@@ -9,7 +9,7 @@ import NewHomePage from "./screen/NewHomePage"
 import Profiles from './screen/Profiles';
 import Live from './screen/Live'
 import Weather from './screen/Weather';
-import About from './screen/About'
+import Info from './screen/Info'
 import AddProfile from './screen/AddProfile';
 
 const Stack = createNativeStackNavigator();
@@ -26,7 +26,7 @@ export default function App(){
 
                 <Stack.Screen name = "Live" component = {Live} options={{animation:'slide_from_right'}} />
                 <Stack.Screen name = "Weather" component = {Weather} options={{animation:'slide_from_right'}} />
-                <Stack.Screen name = "About" component = {About} />
+                <Stack.Screen name = "Info" component = {Info} />
                 <Stack.Screen name = "AddProfile" component = {AddProfile} options={{animation:'slide_from_right'}} />
             </Stack.Navigator>
         </NavigationContainer>

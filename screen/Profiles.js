@@ -1,15 +1,13 @@
 import React, { useState,useEffect } from 'react';
-import { StyleSheet, Text, View , Alert, TextInput, Button, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View , Alert, TextInput, Button, TouchableOpacity, BackHandler} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { FontAwesome } from '@expo/vector-icons';
-import MyFlatList from '../components/MyFlatList';
-import SetUp from "../screen/SetUp"
 
 const storeData = async (key,value) => {
     try {
       await AsyncStorage.setItem(key,value)
     } catch (error) {
-
+        Alert.alert("error",error);
     }
 }
 
@@ -67,7 +65,7 @@ export default function Profiles(){
                     onPress={async () => {
                             storeData("VideoURL",VideoURL);
                             storeData("ServerURL",ServerURL);
-                            Alert.alert("Saved")
+                            Alert.alert(null,"Saved");
                         }
                     }
                     
@@ -85,8 +83,6 @@ export default function Profiles(){
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        // justifyContent:'center',
-        // alignItems:'center',
         backgroundColor:"#fafafa",
     },
     mainText:{

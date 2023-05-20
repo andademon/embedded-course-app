@@ -65,10 +65,10 @@ export default function NewHomePage({navigation}){
                 </TouchableHighlight>
             </View>
             <View style = {styles.otherTouchableArea}>
-                <TouchableHighlight style = {{flex:1}} onPress={() => {}} activeOpacity={0.6} underlayColor="#DDDDDD" >
+                <TouchableHighlight style = {{flex:1}} onPress={() => {Alert.alert(null,"app version 0.1.0",[],{cancelable:true})}} activeOpacity={0.6} underlayColor="#DDDDDD" >
                     <View style = {{flex:1,flexDirection:'row',justifyContent:'center'}}>
                         <View style = {{flex:1,justifyContent:'center',alignItems:'center'}}><Foundation name="info" size={32} color="black" /></View>
-                        <View style = {{flex:4,justifyContent:'center'}}><Text style = {styles.mainText}>About</Text></View>
+                        <View style = {{flex:4,justifyContent:'center'}}><Text style = {styles.mainText}>Info</Text></View>
                     </View>
                 </TouchableHighlight>
             </View>
