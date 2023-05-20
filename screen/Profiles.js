@@ -65,7 +65,6 @@ export default function Profiles(){
             <View style = {{height:60,alignItems:'center',marginTop: 40}}>
                 <TouchableOpacity
                     onPress={async () => {
-                            // navigation.navigate('HomePage',{videoURI:videoURI,serverURL:serverURL})//前面videoURI是属性名，后面videoURI是参数(从useState里取)
                             storeData("VideoURL",VideoURL);
                             storeData("ServerURL",ServerURL);
                             Alert.alert("Saved")
