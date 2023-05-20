@@ -1,9 +1,10 @@
 import React, { useState,useEffect } from 'react';
 import { StyleSheet, Text, View , Alert, FlatList} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Separator from "../components/Separator"
 
 export default function MyFlatList(){
-    const [data,setData] = useState([{name:"URL1"},{name:"URL2"},{name:"URL3"},{name:"URL4"}]);
+    const [data,setData] = useState([]);
     const [count, setCount] = useState(0);
 
     useEffect(() => {
@@ -20,7 +21,7 @@ export default function MyFlatList(){
 
     return (
         <View style = {styles.container}>
-            <Text style = {styles.mainText}>MyFlatList</Text>
+            <Separator />
             <FlatList 
                 data={data} 
                 renderItem={data => (
@@ -38,8 +39,8 @@ export default function MyFlatList(){
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        justifyContent:'center',
         alignItems:'center',
+        justifyContent:'center',
         backgroundColor:"#fafafa",
     },
     mainText:{

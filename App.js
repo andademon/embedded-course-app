@@ -10,6 +10,7 @@ import Profiles from './screen/Profiles';
 import Live from './screen/Live'
 import Weather from './screen/Weather';
 import About from './screen/About'
+import AddProfile from './screen/AddProfile';
 
 const Stack = createNativeStackNavigator();
 
@@ -21,10 +22,12 @@ export default function App(){
                 {/* <Stack.Screen name = "SetUp" component = {SetUp} options={{animation:'slide_from_right'}} /> */}
                 {/* <Stack.Screen name = "HomePage" component = {HomePage} /> */}
                 <Stack.Screen name = "NewHomePage" component = {NewHomePage} options={{headerShadowVisible:true,headerStyle:{backgroundColor:"skyblue"},headerShown:false,title:"MyApp"}} />
-                <Stack.Screen name = "Profiles" component = {Profiles} options={{animation:'slide_from_right',headerStyle:{backgroundColor:"#fafafa"},headerRight:() => (<View><Button title='ADD' color="#66ccff" onPress={() => {Alert.alert("hello world")}}/></View>)}} />
+                <Stack.Screen name = "Profiles" component = {Profiles} options={{animation:'slide_from_right',headerStyle:{backgroundColor:"#fafafa"}}}/>
+
                 <Stack.Screen name = "Live" component = {Live} options={{animation:'slide_from_right'}} />
                 <Stack.Screen name = "Weather" component = {Weather} options={{animation:'slide_from_right'}} />
                 <Stack.Screen name = "About" component = {About} />
+                <Stack.Screen name = "AddProfile" component = {AddProfile} options={{animation:'slide_from_right'}} />
             </Stack.Navigator>
         </NavigationContainer>
     );
