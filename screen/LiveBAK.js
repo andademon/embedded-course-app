@@ -16,7 +16,7 @@ const getData = async (key) => {
 export default function Live(){
     const [videoURL,setVideoURL] = useState("");
     const [serverURL,setServerURL] = useState("");
-    const [isLoading,setIsLoading] = useState(true);
+    const [isLoading,setIsLoading] = useState(true)
 
     useEffect(() => {
         async function getVideoURL(){
@@ -29,14 +29,11 @@ export default function Live(){
         }
         getVideoURL();
         getServerURL();
-        // setTimeout(() => {
-        //     console.log(videoURL);
-        // },1000)
 
         setTimeout(() => {
             setIsLoading(false);
-            // console.log(videoURL)
-            // console.log(serverURL)
+            console.log(videoURL)
+            console.log(serverURL)
         }, 1000);
     },[])
 
@@ -46,7 +43,7 @@ export default function Live(){
                 method:"POST",
             });
             let data = await response.json().then((data) => {
-                // console.log(data);
+                console.log(data);
             });
         } catch (error) {
             Alert.alert("ERROR",error.toString(),[{text:"OK",style: "default"}]);
@@ -59,7 +56,7 @@ export default function Live(){
                 method:"POST",
             });
             let data = await response.json().then((data) => {
-                // console.log(data);
+                console.log(data);
             });
         } catch (error) {
             Alert.alert("ERROR",error.toString(),[{text:"OK",style: "default"}]);
@@ -69,16 +66,17 @@ export default function Live(){
     return (
         <View style = {styles.container}>
             <View style = {{flex:1,marginTop:10}}>
-                {isLoading ? (<View><Text style = {{fontSize:16}}>Loading...</Text></View>) : (
-                    <View style = {{flex:1}}>
-                        <MyVideo videoURI={videoURL} />
+                {/* <MyVideo videoURI={videoURL} /> */}
+                {isLoading?(<Text>Loading</Text>):
+                    (<View style = {{flex:1}}>
+                        <MyVideo videoURI = {videoURL} />
                         <View style = {{height:60,flexDirection: 'row',marginTop:10,marginBottom:10,alignItems:'center',justifyContent:'center'}}>
                             <View style = {{flex:1,paddingRight:10}}><Button title='left' onPress={turnLeft}></Button></View>
                             <View style = {{flex:1,paddingLeft:10}}><Button title='right' onPress={turnRight}></Button></View>
                         </View>
                     </View>
-                )}
-            {/* <View><Text>111222</Text></View> */}
+                    )
+                }
             </View>
         </View>
     );

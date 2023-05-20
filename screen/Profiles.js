@@ -69,9 +69,9 @@ export default function Profiles(){
                     }
                     
                 >
-                    <View style = {{height:60,width: 120,backgroundColor:'#fafafa',borderRadius:12,borderColor:"green",borderWidth:1,flexDirection:'row',alignItems:'center'}}>
+                    <View style = {{height:60,width: 150,backgroundColor:'#fafafa',borderRadius:12,borderColor:"green",borderWidth:1,flexDirection:'row',alignItems:'center'}}>
                         <View style = {{flex:1,alignItems:'center'}}><FontAwesome name="save" size={24} color="black" /></View>
-                        <View style = {{flex:1,alignItems:'center'}}><Text style = {{color:'green',fontSize:20,paddingRight:14}}>Save</Text></View>
+                        <View style = {{flex:2,alignItems:'center',justifyContent:'center'}}><Text style = {{color:'green',fontSize:20}}>Save</Text></View>
                     </View>
                 </TouchableOpacity>
             </View>
