@@ -4,7 +4,7 @@ import { StyleSheet, Text, View , Alert} from 'react-native';
 export default function Settings(){
     return (
         <View style = {styles.container}>
-            <Text style = {styles.mainText}>Settings</Text>
+            <Text style = {styles.mainText}>this page is not avaliable yet</Text>
         </View>
     );
 }

@@ -9,7 +9,6 @@ const getData = async (key) => {
       let data = await AsyncStorage.getItem(key);
       return data;
     } catch(error) {
-      // error reading value
       return "null";
     }
 }
@@ -29,9 +28,9 @@ export default function Live(){
         }
         getVideoURL();
         getServerURL();
-        setTimeout(() => {
-            console.log(videoURL);
-        },1000)
+        // setTimeout(() => {
+        //     console.log(videoURL);
+        // },1000)
     },[])
 
     async function turnLeft(){

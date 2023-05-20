@@ -16,7 +16,6 @@ const getData = async (key) => {
       let data = await AsyncStorage.getItem(key);
       return data;
     } catch(error) {
-      // error reading value
       return "null";
     }
 }

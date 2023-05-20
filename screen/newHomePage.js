@@ -40,16 +40,17 @@ export default function NewHomePage({navigation}){
             </View>
 
             {/*分割界线*/}
-            <View style = {styles.otherTouchableArea}>
+            {/* <View style = {styles.otherTouchableArea}>
                 <TouchableHighlight style = {{flex:1}} onPress={() => {}} activeOpacity={0.6} underlayColor="#DDDDDD" >
                     <View style = {{flex:1,flexDirection:'row',justifyContent:'center'}}>
                         <View style = {{flex:1,justifyContent:'center',alignItems:'center'}}><FontAwesome5 name="clipboard-list" size={32} color="black" /></View>
                         <View style = {{flex:4,justifyContent:'center'}}><Text style = {styles.mainText}>Logs</Text></View>
                     </View>
                 </TouchableHighlight>
-            </View>
+            </View> */}
+
             <View style = {styles.otherTouchableArea}>
-                <TouchableHighlight style = {{flex:1}} onPress={() => {}} activeOpacity={0.6} underlayColor="#DDDDDD" >
+                <TouchableHighlight style = {{flex:1}} onPress={() => {navigation.navigate("Settings")}} activeOpacity={0.6} underlayColor="#DDDDDD" >
                     <View style = {{flex:1,flexDirection:'row',justifyContent:'center'}}>
                         <View style = {{flex:1,justifyContent:'center',alignItems:'center'}}><MaterialIcons name="settings" size={32} color="black" /></View>
                         <View style = {{flex:4,justifyContent:'center'}}><Text style = {styles.mainText}>Settings</Text></View>
@@ -57,7 +58,7 @@ export default function NewHomePage({navigation}){
                 </TouchableHighlight>
             </View>
             <View style = {styles.otherTouchableArea}>
-                <TouchableHighlight style = {{flex:1}} onPress={() => {}} activeOpacity={0.6} underlayColor="#DDDDDD" >
+                <TouchableHighlight style = {{flex:1}} onPress={() => {navigation.navigate("Help")}} activeOpacity={0.6} underlayColor="#DDDDDD" >
                     <View style = {{flex:1,flexDirection:'row',justifyContent:'center'}}>
                         <View style = {{flex:1,justifyContent:'center',alignItems:'center'}}><MaterialIcons name="help-center" size={32} color="black" /></View>
                         <View style = {{flex:4,justifyContent:'center'}}><Text style = {styles.mainText}>Help</Text></View>
