@@ -13,7 +13,7 @@ export default function NewHomePage({navigation}){
             <View style = {{height:50,marginTop:30}}></View>
             {/*分割界线*/}
             <View style = {styles.mainTouchableArea}>
-                <TouchableHighlight style = {{flex:1}} onPress={() => {navigation.navigate("Profiles")}} activeOpacity={0.6} underlayColor="#DDDDDD">
+                <TouchableHighlight style = {{flex:1,backgroundColor:'#66ccff'}} onPress={() => {navigation.navigate("Profiles")}} activeOpacity={0.6} underlayColor="#DDDDDD">
                     <View style = {{flex:1,flexDirection:'row',justifyContent:'center'}}>
                         <View style = {{flex:1,justifyContent:'center',alignItems:'center'}}><AntDesign name="profile" size={32} color="black" /></View>
                         <View style = {{flex:4,justifyContent:'center'}}><Text style = {styles.mainText}>Profiles</Text></View>
