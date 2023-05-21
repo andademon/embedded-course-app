@@ -7,7 +7,7 @@ const storeData = async (key,value) => {
     try {
       await AsyncStorage.setItem(key,value)
     } catch (error) {
-        Alert.alert("error",error);
+        // Alert.alert("error",error);
     }
 }
 
@@ -61,7 +61,7 @@ export default function Profiles(){
             />
             <View style = {{height:60,alignItems:'center',marginTop: 40}}>
                 <TouchableOpacity
-                    onPress={async () => {
+                    onPress={() => {
                             storeData("VideoURL",VideoURL);
                             storeData("ServerURL",ServerURL);
                             Alert.alert(null,"Saved");
