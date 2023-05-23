@@ -6,7 +6,7 @@ export default function Help(){
         Linking.openURL(url);
     }
     
-    let giteeURL = "https://gitee.com/xiaoyuan-c/raspberry-homework";
+    let giteeURL = "https://github.com/xiaoyuan-c/RaspberryHomework";
 
     return (
         <View style = {styles.container}>
