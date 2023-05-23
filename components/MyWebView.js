@@ -7,7 +7,6 @@ export default function MyWebView({videoURL}){
         <View style = {styles.container}>
             <WebView
                 source={{ uri: videoURL }}
-                style={{marginTop: 10}}
             />    
         </View>
     );

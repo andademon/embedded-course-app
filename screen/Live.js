@@ -2,7 +2,8 @@ import React, { useState,useEffect } from 'react';
 import { StyleSheet, Text, View , Alert, Button} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import MyVideo from '../components/MyVideo';
-
+import WebSocketBar from '../components/WebSocketBar';
+import MyWebView from '../components/MyWebView'
 
 const getData = async (key) => {
     try {
@@ -22,22 +23,21 @@ export default function Live(){
         async function getVideoURL(){
             let videoURI = await getData("VideoURL");
             setVideoURL(videoURI);
+            return Promise.resolve();
         }
         async function getServerURL(){
             let serverURL = await getData("ServerURL");
             setServerURL(serverURL);
+            return Promise.resolve();
         }
-        getVideoURL();
-        getServerURL();
-        // setTimeout(() => {
-        //     console.log(videoURL);
-        // },1000)
+        // getVideoURL();
+        // getServerURL();
 
-        setTimeout(() => {
+        Promise.all([getVideoURL(), getServerURL()]).then(() => {
             setIsLoading(false);
-            // console.log(videoURL)
-            // console.log(serverURL)
-        }, 1000);
+          }).catch((error) => {
+            console.log(error);
+          });
     },[])
 
     async function turnLeft(){
@@ -68,17 +68,19 @@ export default function Live(){
 
     return (
         <View style = {styles.container}>
+            <WebSocketBar serverURL = {serverURL} />
             <View style = {{flex:1,marginTop:10}}>
                 {isLoading ? (<View><Text style = {{fontSize:16}}>Loading...</Text></View>) : (
                     <View style = {{flex:1}}>
-                        <MyVideo videoURI={videoURL} />
+                        {/* <MyVideo videoURI={videoURL} /> */}
+                        <MyWebView videoURL={videoURL} />
                         <View style = {{height:60,flexDirection: 'row',marginTop:10,marginBottom:10,alignItems:'center',justifyContent:'center'}}>
                             <View style = {{flex:1,paddingRight:10}}><Button title='left' onPress={turnLeft}></Button></View>
                             <View style = {{flex:1,paddingLeft:10}}><Button title='right' onPress={turnRight}></Button></View>
                         </View>
                     </View>
                 )}
-            {/* <View><Text>111222</Text></View> */}
+            {/* <View><Text>122341111144412</Text></View> */}
             </View>
         </View>
     );
