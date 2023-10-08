@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View ,Button, Alert} from 'react-native';
-import Header from './components/header';
-import VideoPlayer from './components/videoplayer';
+import Header from '../components/header';
+import VideoPlayer from '../components/videoplayer';
 
 const Separator = () => {
   return <View style={{height: 2,width: 1000, backgroundColor: 'black'}} />;

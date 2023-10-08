@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View ,Button, Alert, TextInput} from 'react-native';
-import MyTextInput from './components/myTextInput';
+import MyTextInput from '../components/myTextInput';
 
 const Header = () => {
     return (
